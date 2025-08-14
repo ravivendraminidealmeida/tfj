@@ -38,9 +38,9 @@ defmodule TfjComponents do
   def header(assigns) do
     ~H"""
     <header class="w-full p-3 border-b-1 border-red-300 border-slate flex items-center justify-between">
-      <h1 class="text-xl">
-        <span class="text-red-300">t</span>rying to <span class="text-red-300">f</span>ind a <span class="text-red-300">j</span>ob
-      </h1>
+        <h1 class="text-xl">
+          <span class="text-red-300">t</span>rying to <span class="text-red-300">f</span>ind a <span class="text-red-300">j</span>ob
+        </h1>
        <TfjComponents.button variant="primary">get me a job!</TfjComponents.button>
     </header>
     """
