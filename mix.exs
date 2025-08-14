@@ -40,6 +40,7 @@ defmodule Tfj.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:pbkdf2_elixir, "~> 2.0"},
       {:phoenix, "~> 1.8.0"},
       {:phoenix_ecto, "~> 4.5"},
       {:ecto_sql, "~> 3.13"},
@@ -65,7 +66,7 @@ defmodule Tfj.MixProject do
       {:gettext, "~> 0.26"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.2.0"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
     ]
   end
 
@@ -84,6 +85,7 @@ defmodule Tfj.MixProject do
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
       "assets.build": ["tailwind tfj", "esbuild tfj"],
       "assets.deploy": [
+        "cmd --cd assets npm ci",
         "tailwind tfj --minify",
         "esbuild tfj --minify",
         "phx.digest"

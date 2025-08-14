@@ -15,7 +15,7 @@ defmodule TfjComponents do
 
   def button(%{rest: rest} = assigns) do
     variants = %{
-      "danger" => "border-1 border-red-500 bg-red-200 p-1  text-red-500",
+      "primary" => "border-1 border-red-500 bg-red-200 p-1  text-red-500",
       nil => "border-1 p-1"
     }
 
@@ -41,7 +41,7 @@ defmodule TfjComponents do
       <h1 class="text-xl">
         <span class="text-red-300">t</span>rying to <span class="text-red-300">f</span>ind a <span class="text-red-300">j</span>ob
       </h1>
-       <TfjComponents.button variant="danger">get me a job!</TfjComponents.button>
+       <TfjComponents.button variant="primary">get me a job!</TfjComponents.button>
     </header>
     """
   end
