@@ -7,4 +7,5 @@ defmodule TfjWeb.PageHTML do
   use TfjWeb, :html
 
   embed_templates "page_html/*"
+
 end
