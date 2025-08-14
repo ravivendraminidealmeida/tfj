@@ -1,6 +1,7 @@
 defmodule TfjComponents do
   use Phoenix.Component
   use Gettext, backend: TfjWeb.Gettext
+  use TfjWeb, :live_view
 
   @doc """
   Cell-shaded button built by me :)
@@ -15,8 +16,8 @@ defmodule TfjComponents do
 
   def button(%{rest: rest} = assigns) do
     variants = %{
-      "primary" => "border-1 border-red-500 bg-red-200 p-1  text-red-500",
-      nil => "border-1 p-1"
+      "primary" => "border-1 border-red-500 bg-red-200 p-1 text-red-500",
+      "neutral" => "border-1 border-black bg-slate p-1 text-black",
     }
 
     assigns =
@@ -38,10 +39,15 @@ defmodule TfjComponents do
   def header(assigns) do
     ~H"""
     <header class="w-full p-3 border-b-1 border-red-300 border-slate flex items-center justify-between">
+      <.link navigate={~p"/"}>
         <h1 class="text-xl">
           <span class="text-red-300">t</span>rying to <span class="text-red-300">f</span>ind a <span class="text-red-300">j</span>ob
         </h1>
-       <TfjComponents.button variant="primary">get me a job!</TfjComponents.button>
+      </.link>
+      <div>
+        <TfjComponents.button variant="neutral">get in touch w/ me</TfjComponents.button>
+        <TfjComponents.button variant="primary">get me a job!</TfjComponents.button>
+      </div>
     </header>
     """
   end
