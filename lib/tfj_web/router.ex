@@ -21,6 +21,14 @@ defmodule TfjWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+  end
+
+  scope "/jobs", TfjWeb do
+    pipe_through [:browser, :require_authenticated_user]
+
+    get "/", JobController, :index
+    post "/find_job", JobController, :find_job
   end
 
   # Other scopes may use custom stacks.
@@ -60,6 +68,7 @@ defmodule TfjWeb.Router do
     get "/users/settings", UserSettingsController, :edit
     put "/users/settings", UserSettingsController, :update
     get "/users/settings/confirm-email/:token", UserSettingsController, :confirm_email
+
   end
 
   scope "/", TfjWeb do

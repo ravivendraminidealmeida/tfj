@@ -17,7 +17,7 @@ defmodule TfjComponents do
   def button(%{rest: rest} = assigns) do
     variants = %{
       "primary" => "border-1 border-red-500 bg-red-200 p-1 text-red-500",
-      "neutral" => "border-1 border-black bg-slate p-1 text-black",
+      "neutral" => "border-1 border-black bg-slate p-1 text-black"
     }
 
     assigns =
@@ -46,7 +46,9 @@ defmodule TfjComponents do
       </.link>
       <div>
         <TfjComponents.button variant="neutral">get in touch w/ me</TfjComponents.button>
-        <TfjComponents.button variant="primary">get me a job!</TfjComponents.button>
+        <.link navigate={~p"/jobs"}>
+          <TfjComponents.button variant="primary">get me a job!</TfjComponents.button>
+        </.link>
       </div>
     </header>
     """

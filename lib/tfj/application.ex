@@ -8,6 +8,10 @@ defmodule Tfj.Application do
   @impl true
   def start(_type, _args) do
     children = [
+
+      {Finch, name: Tfj.Finch},
+
+
       TfjWeb.Telemetry,
       Tfj.Repo,
       {Ecto.Migrator,
